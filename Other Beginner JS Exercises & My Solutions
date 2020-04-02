@@ -1,0 +1,120 @@
+1. We have received some raw data and we have to calculate how many years of experience all employees have together. 
+ 
+const people = [
+  {
+    name: 'Joe Schmoe',
+    yearsExperience: 1,
+    department: 'IT'
+  },
+  {
+    name: 'Sally Sallerson',
+    yearsExperience: 15,
+    department: 'Engineering'
+  },
+  {
+    name: 'Bill Billson',
+    yearsExperience: 5,
+    department: 'Engineering'
+  },
+  {
+    name: 'Jane Janet',
+    yearsExperience: 11,
+    department: 'Management'
+  },
+  {
+    name: 'Bob Hope',
+    yearsExperience: 9,
+    department: 'IT'
+  }
+];
+
+My Answer:
+
+function getTotalExperience(results) {
+  var total = 0;
+  results.forEach(function(item) {
+    total += item['yearsExperience'];
+  });
+  return total;
+}
+
+console.log(getTotalExperience(people)); // 41
+
+
+2. We have received some raw data and we have to calculate how many people there are in each department.   
+
+const people = [
+  {
+    name: 'Joe Schmoe',
+    yearsExperience: 1,
+    department: 'IT'
+  },
+  {
+    name: 'Sally Sallerson',
+    yearsExperience: 15,
+    department: 'Engineering'
+  },
+  {
+    name: 'Bill Billson',
+    yearsExperience: 5,
+    department: 'Engineering'
+  },
+  {
+    name: 'Jane Janet',
+    yearsExperience: 11,
+    department: 'Management'
+  },
+  {
+    name: 'Bob Hope',
+    yearsExperience: 9,
+    department: 'IT'
+  }
+];
+My Answer: 
+
+function howManyPeopleInEachDepartment(results) {
+  var final = {};
+  results.forEach(function(item) {
+    if (!final.hasOwnProperty(item['department'])) {
+        final[item['department']] = 1;
+        } else if (final.hasOwnProperty(item['department'])) {
+        final[item['department']]++;
+          };
+  });
+  return final;
+}
+console.log(howManyPeopleInEachDepartment(people));
+
+
+
+3. Return object with largest poster area.
+
+var boxarts = [
+{ width: 200, height: 200, url: "http://cdn-0.nflximg.com/images/2891/Fracture200.jpg" },
+{ width: 150, height: 200, url: "http://cdn-0.nflximg.com/images/2891/Fracture150.jpg" },
+{ width: 300, height: 200, url: "http://cdn-0.nflximg.com/images/2891/Fracture300.jpg" },
+{ width: 425, height: 150, url: "http://cdn-0.nflximg.com/images/2891/Fracture425.jpg" }
+];
+
+My Answer:
+
+var myF = boxarts.reduce(function (a, b) {
+  if (a.width * a.height > b.width * b.height) {
+    return a;
+  }
+    return b;
+});
+
+7. Implement the function_in_unique order, which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+
+My Answer:
+
+var uniqueInOrder=function(iterable) {
+  var newArray = [];
+  for (var i = 0; i < iterable.length; i++) {
+    if (iterable[i] !== iterable[i+1]) {
+    newArray.push(iterable[i]);
+    }
+  }
+  return newArray;
+}
