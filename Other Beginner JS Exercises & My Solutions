@@ -118,3 +118,18 @@ var uniqueInOrder=function(iterable) {
   }
   return newArray;
 }
+
+8. Make this work:
+
+duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
+
+My Answer:
+
+function duplicate(array) {
+  array.forEach((item) => {
+    array.push(item)
+  })
+  
+return array;  
+}
+
